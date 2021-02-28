@@ -1,0 +1,78 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  font-family: "Noto Sans", Courier, monospace;
+}
+
+.content {
+  color: white;
+}
+
+header::after {
+  background-color: black;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  opacity: 0.4;
+}
+
+.intro {
+  width: 100%;
+  margin: auto;
+  background: url(night-sky-camp.png) no-repeat 50% 50%;
+  background-size: cover;
+  display: table;
+  top: 0;
+  object-fit: contain;
+}
+
+.intro .inner {
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+  padding-bottom: 25%;
+}
+
+#logo {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10%;
+  max-width: 20%;
+  max-height: 20%;
+}
+
+h2 {
+  color: white;
+}
+
+#header-btn {
+  -webkit-border-radius: 28;
+  -moz-border-radius: 28;
+  border-radius: 28px;
+  color: white;
+  font-size: 20px;
+  padding: 10px 20px 10px 20px;
+  border: solid #ffffff 2px;
+  font-weight: bold;
+  text-decoration: none;
+  background: rgba(0, 0, 0, 0);
+}
+
+#header-btn:hover {
+  background: rgba(0, 0, 0, 0.3);
+  text-decoration: none;
+}
+
+.wrapper {
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: auto;
+  grid-template-areas:
+    "h1 h1 h1"
+    "info1 info1 info1"
+    "h2 h2 h2"
+    "info2 info2 info2";
+}
