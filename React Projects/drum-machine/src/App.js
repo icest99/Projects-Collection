@@ -1,11 +1,42 @@
 import React, { useState, useEffect } from "react";
+import CssBaseline from "@material-ui/core/CssBaseline";
+import {
+  Button,
+  Grid,
+  Paper,
+  makeStyles,
+  Tooltip,
+  Divider,
+  TextField,
+  ButtonGroup,
+} from "@material-ui/core";
+
+const useStyles = makeStyles((theme) => ({
+  root: {
+    flexGrow: 1,
+  },
+  paper: {
+    padding: theme.spacing(2),
+    textAlign: "center",
+    color: theme.palette.text.secondary,
+  },
+}));
 
 const DrumPad = ({ drumKey, song, handleClick, url }) => {
   return (
-    <button id={song} onClick={handleClick(drumKey, song)}>
+    <Button
+      color="secondary"
+      id={song}
+      onClick={handleClick(drumKey, song)}
+      style={{
+        padding: "7%",
+        marginRight: "5%",
+        marginLeft: "10%",
+      }}
+    >
       {drumKey}
       <audio src={url} id={drumKey} />
-    </button>
+    </Button>
   );
 };
 
@@ -191,26 +222,45 @@ function App() {
       return document.getElementById(event.key.toUpperCase()).play();
     }
   }
+  const classes = useStyles();
 
   return (
     <div className="Wrapper">
-      <div class="Drum-Buttons">
-        {drumPads.map((item) => (
-          <DrumPad
-            song={item.song}
-            drumKey={item.key}
-            url={item.url}
-            handleClick={handleAudio}
-          />
-        ))}
-      </div>
-      <div class="option-buttons">
-        {/* <button onClick={changeLibrary1}>Library1</button> */}
-        <button onClick={changeLibrary1}>Library1</button>
-        <button onClick={changeLibrary2}>Library2</button>
-      </div>
-      <div>{title}</div>
-      <div>Additional sound effects from https://www.zapsplat.com</div>
+      <CssBaseline />
+      <Grid
+        container
+        direction="row"
+        justify="center"
+        alignItems="center"
+        style={{
+          backgroundColor: "#3A3B3C",
+          height: "100vh",
+        }}
+      >
+        <Paper className={classes.paper} style={{ minWidth: "35%" }}>
+          <Grid item xs={12}>
+            <div class="option-buttons">
+              {/* <button onClick={changeLibrary1}>Library1</button> */}
+              <Button onClick={changeLibrary1}>Library1</Button>
+              <Button onClick={changeLibrary2}>Library2</Button>
+            </div>
+          </Grid>
+          <Grid container direction="rows" item style={{ textAlign: "center" }}>
+            {drumPads.map((item) => (
+              <DrumPad
+                song={item.song}
+                drumKey={item.key}
+                url={item.url}
+                handleClick={handleAudio}
+              />
+            ))}
+          </Grid>
+          <div>
+            <h3>{title}</h3>
+          </div>
+          <div>Additional sound effects from https://www.zapsplat.com</div>
+        </Paper>
+      </Grid>
     </div>
   );
 }

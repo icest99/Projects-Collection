@@ -7,14 +7,18 @@ export default function todos({ todos_fromTodoList, toggleTodo }) {
 
   return (
     <div>
-      <label>
-        <input
-          type="checkbox"
-          checked={todos_fromTodoList.complete}
-          onChange={handleTodoClick}
-        ></input>
-        {todos_fromTodoList.name}
-      </label>
+      <form action="#">
+        <p>
+          <label>
+            <input
+              type="checkbox"
+              checked={todos_fromTodoList.complete}
+              onChange={handleTodoClick}
+            />
+            <span>{todos_fromTodoList.name}</span>
+          </label>
+        </p>
+      </form>
     </div>
   );
 }
