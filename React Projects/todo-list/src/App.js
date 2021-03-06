@@ -81,7 +81,7 @@ function App() {
         alignItems="center"
         style={{ height: "100vh" }}
       >
-        <Paper className={classes.paper}>
+        <Paper className={classes.paper} style={{ textAlign: "center" }}>
           <Grid item xs={12} style={{ textAlign: "center" }}>
             <TextField
               id="standard-basic"
